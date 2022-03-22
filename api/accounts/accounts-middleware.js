@@ -3,8 +3,6 @@ const db = require('../../data/db-config')
 
 exports.checkAccountPayload = (req, res, next) => {
   // DO YOUR MAGIC
-  // Note: you can either write "manual" validation logic
-  // or use the Yup library (not currently installed)
   const error = { status: 400}
    const { name, budget} = req.body
     if(name  === undefined || budget === undefined){
@@ -22,7 +20,7 @@ exports.checkAccountPayload = (req, res, next) => {
       next(error)
     } else{                                                                                                             
     }
-}
+  }
 
 exports.checkAccountNameUnique = async (req, res, next) => {
   // DO YOUR MAGIC
@@ -41,7 +39,7 @@ exports.checkAccountNameUnique = async (req, res, next) => {
   }
 }
 
-exports.checkAccountId = async(req, res, next) => {
+exports.checkAccountId = async (req, res, next) => {
   // DO YOUR MAGIC
   try{
     const account = await Account.getById(req.params.id)
